@@ -28,11 +28,14 @@ public class Message {
 		// encapulate/encode the payload of this message in the
 		// encoded byte array according to message format
 		
-		if (true)
-		   throw new UnsupportedOperationException(TODO.method());
-
-		return encoded;
-		
+		for(byte b : payload) {
+			encoded[b] = payload[b];
+			}
+		if (encoded[0] >= 127 && encoded[0] <= 0) {
+			return encoded;
+		} else {
+			throw new UnsupportedOperationException(TODO.method());
+		}
 	}
 
 	public void decapsulate(byte[] received) {
